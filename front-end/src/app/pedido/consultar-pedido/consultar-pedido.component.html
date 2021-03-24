@@ -1,0 +1,34 @@
+<h1 class="mt-4">Consultar Pedidos</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Consulte os Pedidos Realizados</li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Item</th>
+                        <th>Valor</th>
+                        <th>Quantidade</th>
+                        <th>Mesa</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pedido of pedido">
+                        <td>{{ pedido.id }}</td>
+                        <td>{{ pedido.name }}</td>
+                        <td>{{ pedido.value }}</td>
+                        <td>{{ pedido.quant }}</td>
+                        <td>{{ pedido.mesa }}</td>
+                        <td>{{ pedido.status }}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

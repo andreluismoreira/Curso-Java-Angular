@@ -1,0 +1,61 @@
+<h1 class="mt-4">Editar Pedidos</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Edite ou Exclua os Pedidos Realizados</li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Item</th>
+                        <th>Valor</th>
+                        <th>Quantidade</th>
+                        <th>Mesa</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pedido of pedido">
+                        <td>{{ pedido.id }}</td>
+                        <td>{{ pedido.name }}</td>
+                        <td>{{ pedido.value }}</td>
+                        <td>{{ pedido.quant }}</td>
+                        <td>{{ pedido.mesa }}</td>
+                        <td>{{ pedido.status }}</td>
+                        <td>
+                            <button class="btn btn-outline-warning " 
+                            routerLink = "/novopedido/{{ pedido.id }}">
+                                <i class="fas fa-pen"></i>
+                            </button>
+
+                            <button class="btn btn-outline-danger ml-2" 
+                                    (click)="preparacaoDeDelecao(pedido)" 
+                                    data-toggle="modal" data-target="#modalDelecao" >
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div  id="modalDelecao" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4> Confirmação</h4>
+                </div>
+                <div class="modal-body" *ngIf="pedidoSelecionado">
+                    Confirma a exclusão do pedido {{pedidoSelecionado.name}} ?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" (click) = "deletarPedido()" data-dismiss="modal">Sim</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Não</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

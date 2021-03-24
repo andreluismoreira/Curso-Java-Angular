@@ -1,0 +1,67 @@
+<h1 class="mt-4"> Finalizar Pedido</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"> Fechando pedido de uma mesa </li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group" *ngIf="!mesaSelecionada">
+                <label>Mesa: </label>
+                <select [(ngModel)]="mesa" name="mesa"  >
+                    <option value="0">Selecione...</option>
+                    <option *ngFor="let mesa of mesas">
+                        {{ mesa }}
+                    </option>
+                </select>
+            </div>
+            <div class="row" *ngIf="!mesaSelecionada">
+                <div class="col-md-3">
+                    <button type="submit" (click)="pesquisarPedidos()" class="btn btn-success">
+                        <i class="fa fa-search"></i> Pesquisar
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Item</th>
+                    <th>Valor</th>
+                    <th>Quantidade</th>
+                    <th>Mesa</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pedido of pedidos">
+                    <td>{{ pedido.id }}</td>
+                    <td>{{ pedido.name }}</td>
+                    <td>{{ pedido.value }}</td>
+                    <td>{{ pedido.quant }}</td>
+                    <td>{{ pedido.mesa }}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Total</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>R$ {{ valorTotal }}</th>
+                </tr>
+            </tfoot>
+        </table>
+        <br>
+        <div class="row" *ngIf="mesaSelecionada">
+            <div class="col-md-3">
+                <button type="submit" (click)="fecharConta()" class="btn btn-success">
+                    <i class="fa fa-check"></i> Finalizar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

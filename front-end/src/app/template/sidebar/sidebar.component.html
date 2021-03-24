@@ -1,0 +1,43 @@
+<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <div class="sb-sidenav-menu-heading"></div>
+                <a class="nav-link" routerLink = "/home"
+                    ><div class="sb-nav-link-icon"><i class="fas fa-home fa-2x"></i></div>
+                    Pagina inicial</a
+                >
+                <div class="sb-sidenav-menu-heading">Interface</div>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                    <div class="sb-nav-link-icon"><i class="far fa-plus-square"></i>
+                    </div>
+                    Pedidos
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i>
+                    </div
+                ></a>
+                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav"> 
+                        <a class="nav-link" routerLink = "/novopedido">Novo Pedido</a>
+                        <a class="nav-link" routerLink = "/editarpedido">Editar Pedido</a>
+                        <a class="nav-link" routerLink = "/consultarpedido">Acompanhar Pedido</a>
+                        <a class="nav-link" routerLink = "/finalizarpedido">Finalizar Pedido</a>
+                    </nav>
+                </div>
+                <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"
+                    ><div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    Cardapio
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
+                ></a>
+                <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                            <a class="nav-link" routerLink="/cardapio">Pratos</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small" style="color:rgb(253, 252, 252)" > Treinamento Indra: Java + Angular</div>
+             André Luis Moreira
+        </div>
+    </nav>
+</div>

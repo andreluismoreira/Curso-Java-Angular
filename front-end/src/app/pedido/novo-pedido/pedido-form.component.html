@@ -1,0 +1,75 @@
+<h1 class="mt-4"> {{pedido.id ? 'Editar Pedido' : 'Novo Pedido'}}</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"> {{pedido.id ? 'Edite um pedido' : 'Adicione um pedido'}}</li>
+</ol>
+<div class="container">
+    <form #pedidoForm = "ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="alert alert-success" role="alert" *ngIf="success == true">
+                   Pedido Salvo/Atualizado com Sucesso ! 
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>ID:</label>
+                    <input type="text" class= "form-control" disabled="true"  name="id" [ngModel]="pedido.id"/>
+                </div>            
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label *ngIf="pedido.id" >Status:</label>
+                    <input type="text" class= "form-control" 
+                            name="status" [(ngModel)]="pedido.status"
+                            *ngIf="pedido.id"/>
+                </div>            
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>Item:</label>
+                    <input type="text" class= "form-control" name="name" [(ngModel)]="pedido.name" />
+                </div>            
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>Valor:</label>
+                    <input type="text" class= "form-control" name="value" [(ngModel)]="pedido.value" />
+                </div>            
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>Quantidade:</label>
+                    <input type="text" class= "form-control" name="quant" [(ngModel)]="pedido.quant"/>
+                </div>            
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>Mesa:</label>
+                    <select [(ngModel)]="pedido.mesa" name="mesa" class="form-control">
+                        <option value="0">Selecione...</option>
+                        <option *ngFor="let mesa of mesas">
+                            {{ mesa }}
+                        </option>
+                    </select>
+                </div>            
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-success" *ngIf="!pedido.id" >
+                    <i class="fa fa-save"></i> Salvar
+                </button>
+                <button type="submit" class="btn btn-primary" *ngIf="pedido.id" >
+                    <i class="fa fa-sync-alt"></i> Atualizar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
